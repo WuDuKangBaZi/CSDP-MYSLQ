@@ -1,0 +1,137 @@
+﻿<UserControl x:Class="客成部机器人数据管理端.dataInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:local="clr-namespace:客成部机器人数据管理端" d:DataContext="{d:DesignInstance Type=local:DBModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="686" Loaded="UserControl_Loaded">
+    <ScrollViewer>
+        <Grid x:Name="grid_dataInfo">
+
+            <StackPanel Orientation="Vertical" Margin="0,10,0,10" x:Name="stackMain">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0">
+                    <Label Content="问题ID:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox x:Name="questionno" IsReadOnly="True"  Width="250" Text="{Binding Path=questionNo}" />
+                    <Label Content="发生日期:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="Issuedate" Width="250" Text="{Binding Path=Issuedate}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0">
+                    <Label Content="问题来源:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <ComboBox  Width="250" DisplayMemberPath="Code" SelectedValuePath="Name" SelectedValue="{Binding Path=Problemsource}" x:Name="Problemsource"/>
+                    <Label Content="区域:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox   Width="250" Text="{Binding Path=Regional}"  x:Name="Regional"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0">
+                    <Label Content="客户:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="customer" Width="250" Text="{Binding Path=customer}" />
+                    <Label Content="项目场景:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="Scenes" Width="250" Text="{Binding Path=Scenes}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0">
+                    <Label Content="商务:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="Business" Width="250" Text="{Binding Path=Business}" />
+                    <Label Content="问题状态:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <ComboBox  x:Name="status" Width="250"   DisplayMemberPath="Code" SelectedValuePath="Name" SelectedValue="{Binding status}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0">
+                    <Label Content="问题内容:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="content" Width="583"  Height="auto" TextWrapping="Wrap" Text="{Binding Path=content}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0">
+                    <Label Content="TAPD:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="TAPD" Width="583"  Height="auto" TextWrapping="Wrap" Text="{Binding Path=TAPD}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0">
+                    <Label Content="Factory版本:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="FactoryVersion" Width="250"   TextWrapping="Wrap" Text="{Binding Path=FactoryVersion}"/>
+                    <Label Content="Bot版本:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="BotVersion" Width="250"   TextWrapping="Wrap" Text="{Binding Path=BotVersion}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0">
+                    <Label Content="Z-Commander:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="commanderVersion" Width="250"   TextWrapping="Wrap" Text="{Binding Path=commanderVersion}" />
+                    <Label Content="离线OCR:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="BaseOCR" Width="250"   TextWrapping="Wrap" Text="{Binding Path=BaseOCR}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0">
+                    <Label Content="补丁包文件:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="Patchfile" Width="583"   TextWrapping="Wrap" Text="{Binding Path=Patchfile}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0">
+                    <Label Content="问题一级类目:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <ComboBox  x:Name="questionLevel1" Width="250"   DisplayMemberPath="Code" SelectedValuePath="Name" SelectedValue="{Binding Path=questionLevel1}" />
+                    <Label Content="问题二级类目:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <ComboBox  x:Name="questionLevel2" Width="250"    DisplayMemberPath="Code" SelectedValuePath="Name" SelectedValue="{Binding Path=questionLevel2}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0">
+                    <Label Content="问题三级目录:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="questionLevel3" Width="250"   Text="{Binding Path=questionLevel3}" />
+                    <Label Content="紧急类型:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <ComboBox  x:Name="EmergencyType" Width="250"   DisplayMemberPath="Code" SelectedValuePath="Name" SelectedValue="{Binding Path=EmergencyType}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0">
+                    <Label Content="问题级别:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <ComboBox  x:Name="Problemlevel" Width="250"   DisplayMemberPath="Code" SelectedValuePath="Name" SelectedValue="{Binding Path=Problemlevel}" />
+                    <Label Content="问题阶段:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="stage" Width="250"  Text="{Binding Path=stage}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0">
+                    <Label Content="问题原因:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="reason" Width="583"  Height="auto"  TextWrapping="Wrap" Text="{Binding Path=reason}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0">
+                    <Label Content="解决方案:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="solution" Width="583"  Height="auto"  TextWrapping="Wrap" Text="{Binding Path=solution}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0">
+                    <Label Content="行动:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="action" Width="583"  Height="auto" TextWrapping="Wrap" Text="{Binding Path=action}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0">
+                    <Label Content="项目经理:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="manager" Width="250"   TextWrapping="Wrap" Text="{Binding Path=manager}"/>
+                    <Label Content="实施人员:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="deliver" Width="250"   TextWrapping="Wrap" Text="{Binding Path=deliver}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0">
+                    <Label Content="技术负责人:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="Technology" Width="250"   TextWrapping="Wrap" Text="{Binding Path=Technology}"/>
+                    <Label Content="指派人:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="Designator" Width="250"   TextWrapping="Wrap" Text="{Binding Path=Designator}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0">
+                    <Label Content="计划时间:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="planTime" Width="250"   TextWrapping="Wrap" Text="{Binding Path=planTime}"/>
+                    <Label Content="解决时间:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="Completetime" Width="250"   TextWrapping="Wrap" Text="{Binding Path=Completetime}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0">
+                    <Label Content="问题录入人:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="Input" Width="250"   TextWrapping="Wrap" Text="{Binding Path=Input}"/>
+                    <Label Content="投入工时:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="Investin" Width="250"   Height="auto" TextWrapping="Wrap" Text="{Binding Path=Investin}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0">
+                    <Label Content="备注:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="Remark" Width="583"   Height="auto" TextWrapping="Wrap" Text="{Binding Path=Remark}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0">
+                    <Label Content="出现次数:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="Similarity" Width="250"   Height="auto" TextWrapping="Wrap" Text="{Binding Path=Similarity}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0">
+                    <Label Content="影响程度:" Margin="3,0,0,0" Width="80" HorizontalContentAlignment="Right"/>
+                    <TextBox  x:Name="influencelevel" Width="583"   Height="auto" TextWrapping="Wrap" Text="{Binding Path=influencelevel}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"  Margin="0,5,0,0" HorizontalAlignment="Right">
+                    <Button Content="保存 " HorizontalAlignment="Right" Width="68" Style="{StaticResource MahApps.Styles.Button.Square.Accent}" Click="Button_Click"></Button>
+                </StackPanel>
+            </StackPanel>
+
+
+        </Grid>
+    </ScrollViewer>
+</UserControl>
